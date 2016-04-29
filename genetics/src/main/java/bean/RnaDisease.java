@@ -38,6 +38,10 @@ public class RnaDisease  {
 		this.rna = rna;
 	}
 
+	public RnaDisease() {
+		super();
+	}
+
 	public Integer getRna(){
 		return this.rna;
 	}
