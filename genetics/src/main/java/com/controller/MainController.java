@@ -33,7 +33,9 @@ public class MainController extends SpringBootServletInitializer{
 	}
 
 	@RequestMapping("/")
-	public String index(Model model,String sRna,String sDisease){
+	public String index(Model model,String sRna,String sDisease,String test){
+		model.addAttribute("sRna", sRna);
+		model.addAttribute("sDisease", sDisease);
 		
 		if(Strings.isNotBlank(sRna)){
 			
@@ -50,9 +52,13 @@ public class MainController extends SpringBootServletInitializer{
 			return "main";
 		}
 		
+		if("1".equals(test)){
+			return "main";
+		}
 		model.addAttribute("rel", rel.list(null));
 		model.addAttribute("rna", rna.list(null));
 		model.addAttribute("disease", disease.list(null));
+
 		return "main";
 	}
 }

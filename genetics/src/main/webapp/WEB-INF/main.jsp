@@ -4,15 +4,37 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <link href="/static/bootstrap.min.css" rel="stylesheet"/>
     <title>ECharts</title>
+    <style type="text/css">
+.row{
+	margin: 15px 0;
+}
+    </style>
 </head>
 
 
-<body>
+<body class="container">
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <div class="row">
+    	<a class="btn btn-primary" href="/">测试一</a>
+    	<a class="btn btn-primary" href="?test=1">测试二</a>
+    </div>
+    
+    <c:if test="${param.test eq 1 }">
+    <div class="row">
+    	<form action="" method="get" class="form-inline">
+    		<input type="hidden" name="test" value="1"/>
+    		<input class="form-control" name="sRna" placeholder="在这里输入miRna" value="${sRna }"/>
+    		<input class="form-control" name="sDisease" placeholder="在这里输入疾病" value="${sDisease }"/>
+    		<button class="btn btn-primary">Go</button>
+    	</form>
+    </div>
+    </c:if>
+    
     <div id="main" style="height:800px"></div>
      <!-- ECharts单文件引入 -->
-    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script src="/static/echarts.js"></script>
     
     <script type="text/javascript">
         // 路径配置
